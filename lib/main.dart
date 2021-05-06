@@ -1,69 +1,84 @@
 import 'package:flutter/material.dart';
-import 'homepage.dart';
+import 'package:flutter/services.dart';
+import 'commons/theme.dart';
+import 'pages/homepage.dart';
 
+void main() => runApp(EasyProConceptApp());
 
-void main() {
-  runApp(Homepage());
+class EasyProConceptApp extends StatefulWidget {
+  @override
+  _EasyProAppState createState() => _EasyProAppState();
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class _EasyProAppState extends State<EasyProConceptApp>
+    with TickerProviderStateMixin {
+  TabController _controller;
+  final List<Widget> tabBarScreens = [
+    HomeScreen(),
+    Container(color: Colors.lightBlueAccent),
+    Container(color: Colors.lightBlue),
+    Container(color: Colors.blue),
+    Container(color: Colors.blueAccent),
+  ];
 
-  static const String _title = 'Flutter Code Sample';
+  @override
+  void initState() {
+    super.initState();
+    _controller = TabController(
+        initialIndex: 0, length: tabBarScreens.length, vsync: this);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      title: _title,
-      home: MyStatelessWidget(),
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+        statusBarColor: Colors.black.withAlpha(50),
+        statusBarIconBrightness: Brightness.light));
+    final themeData = EasyProThemeProvider.get();
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'EasyPro',
+      theme: themeData,
+      home: Scaffold(
+        backgroundColor: themeData.scaffoldBackgroundColor,
+        body: TabBarView(
+          controller: _controller,
+          children: tabBarScreens,
+          physics: NeverScrollableScrollPhysics(),
+        ),
+      /*  bottomNavigationBar: TabBar(
+          controller: _controller,
+          indicatorSize: TabBarIndicatorSize.label,
+          indicatorColor: Colors.transparent,
+          isScrollable: false,
+          /*tabs: [
+            _buildTabIcon("img/tab_bar_home.svg", 0, themeData),
+            _buildTabIcon("img/tab_bar_messages.svg", 1, themeData),
+            _buildTabIcon("img/tab_bar_search.svg", 2, themeData),
+            _buildTabIcon("img/tab_bar_notifications.svg", 3, themeData),
+            _buildTabIcon("img/tab_bar_profile.svg", 4, themeData),
+          ],*/
+          onTap: (index) {
+            setState(() {});
+          },
+        ),*/
+      ),
     );
   }
-}
 
-/// This is the stateless widget that the main application instantiates.
-class MyStatelessWidget extends StatelessWidget {
-  const MyStatelessWidget({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('EasyPro'),
-        actions: <Widget>[
-      
-        ],
-      ),
- drawer: Drawer(
-    child: ListView(
-      padding: EdgeInsets.zero,
-      children: const <Widget>[
-        DrawerHeader(
-          decoration: BoxDecoration(
-            color: Colors.blue,
-          ),
-          child: Text(
-            'Menu principale',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 24,
-            ),
-          ),
-        ),
-        ListTile(
-          leading: Icon(Icons.message),
-          title: Text('Messages'),
-        ),
-        ListTile(
-          leading: Icon(Icons.account_circle),
-          title: Text('Profile'),
-        ),
-        ListTile(
-          leading: Icon(Icons.settings),
-          title: Text('Settings'),
-        ),
-      ],
-    ),
-  ),
+  Widget _buildTabIcon(String assetName, int index, ThemeData themeData) {
+    return Tab(
+      /*icon: SvgPicture.asset(
+        assetName,
+        color: index == _controller.index
+            ? themeData.accentColor
+            : themeData.primaryColorLight,
+      ),*/
     );
   }
 }
