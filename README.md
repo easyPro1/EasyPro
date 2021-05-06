@@ -1,10 +1,8 @@
-# easypro
+# easyapp
 
 A new Flutter project.
 
 ## Getting Started
-
-This project is a project started for an university work.
 
 This project is a starting point for a Flutter application.
 
