@@ -15,24 +15,24 @@ class StubData {
 
   List<ProfessionistaCard> get Professionisti => [
         ProfessionistaCard(
-          title: "Hard Rock Hotel1",
-          subTitle: "Central London",
-          imageAsset: "../img/hotel_1.jpg",
+          title: "Mario Rossi",
+          subTitle: "Architetto",
+          imageAsset: "../img/architetto.jpg",
         ),
         ProfessionistaCard(
-          title: "Hard Rock Hotel2",
-          subTitle: "Central London",
-          imageAsset: "../img/hotel_2.jpg",
+          title: "Giuseppe Orlando",
+          subTitle: "Avvocato",
+          imageAsset: "../img/avvocato.jpg",
         ),
         ProfessionistaCard(
-          title: "Hard Rock Hotel3",
-          subTitle: "Central London",
-          imageAsset: "../img/hotel_3.jpg",
+          title: "Francesco Mondadori",
+          subTitle: "Piastrellista",
+          imageAsset: "../img/piastrellista.jpg",
         ),
         ProfessionistaCard(
-          title: "Hard Rock Hotel4",
-          subTitle: "Central London",
-          imageAsset: "../img/hotel_4.jpg",
+          title: "Andrea Rossi",
+          subTitle: "Video Maker",
+          imageAsset: "../img/Videomaker.jpg",
         ),
       ];
 
@@ -68,24 +68,24 @@ class StubData {
 
   List<PromozioneCard> get Promozioni => [
         PromozioneCard(
-          title: "Ealing Blues Festival1",
-          subTitle: "20 July",
-          imageAsset: "../img/event_1.jpg",
+          title: "Giuseppe Orlando",
+          subTitle: "Sconto del 30% sulla prima consulenza",
+          imageAsset: "../img/avvocato.jpg",
         ),
         PromozioneCard(
-          title: "Ealing Blues Festival2",
-          subTitle: "21 July",
-          imageAsset: "../img/event_2.jpg",
+          title: "Giudo Piano",
+          subTitle: "Piastrelle 20€ al metro",
+          imageAsset: "../img/piastrellista_2.jpg",
         ),
         PromozioneCard(
-          title: "Ealing Blues Festival3",
-          subTitle: "23 July",
-          imageAsset: "../img/event_3.png",
+          title: "Dario Lampa",
+          subTitle: "Piano Energetico in sconto",
+          imageAsset: "../img/elettricista.jpg",
         ),
         PromozioneCard(
-          title: "Ealing Blues Festival4",
-          subTitle: "24 July",
-          imageAsset: "../img/event_4.png",
+          title: "Francesco Papa",
+          subTitle: "Preghiere su misura",
+          imageAsset: "../img/papa.jpg",
         ),
       ];
 
