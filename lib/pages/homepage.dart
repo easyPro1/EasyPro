@@ -18,21 +18,19 @@ class _HomeScreenState extends State<HomeScreen> {
 
  @override
   Widget build(BuildContext context) {
-    final themeData = EasyProThemeProvider.get();
-     /*return Scaffold(
+    final themeData = EasyProThemeProvider.get(); 
+     return Scaffold(
       appBar: AppBar(
-        title: const Text('EasyPro'),
-        actions: <Widget>[
-      
-        ],
+        backgroundColor:  Color(0xFF151026),
+        title: Image.asset('../web/prova.png', fit: BoxFit.fitHeight),
       ),
- drawer: Drawer(
+       drawer: Drawer(
     child: ListView(
       padding: EdgeInsets.zero,
       children: const <Widget>[
         DrawerHeader(
           decoration: BoxDecoration(
-            color: Colors.blue,
+            color: Colors.black45,
           ),
           child: Text(
             'Menu principale',
@@ -57,8 +55,7 @@ class _HomeScreenState extends State<HomeScreen> {
       ],
     ),
   ),
-  */
-    return ScrollConfiguration(
+  body: ScrollConfiguration(
       behavior: OverScrollBehavior(),
       child: GestureDetector(
         onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
@@ -237,6 +234,7 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-    );
+    ),
+     );
 }
 }
