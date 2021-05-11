@@ -37,7 +37,7 @@ class BottomSheetContent extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: <Widget>[
                               Text(
-                                "The Curtain Hotel",
+                                "Professionista",
                                 style: TextStyle(
                                     color: themeData.primaryColorLight, fontSize: 24),
                               ),
@@ -45,7 +45,7 @@ class BottomSheetContent extends StatelessWidget {
                                 child: Row(
                                   children: <Widget>[
                                     Icon(
-                                      Icons.desktop_mac,
+                                      Icons.stars,
                                       size: 15,
                                       color: themeData.disabledColor,
                                     ),
@@ -66,22 +66,27 @@ class BottomSheetContent extends StatelessWidget {
                           Row(
                             children: <Widget>[
                               Icon(
-                                Icons.ac_unit,
+                                Icons.library_books,
                                 size: 20,
                                 color: themeData.textTheme.headline3.color,
                               ),
                               const SizedBox(width: 5),
-                              Text("Andrea Rossi"),
+                              Text("Dott.re in Architettura Università della Campania"),
                             ],
                           ),
                           const SizedBox(height: 18),
-                          Text(
-                            "DETAILS",
-                            style: TextStyle(letterSpacing: 1),
+                          Row(
+                            children: <Widget>[
+                              Text("Dettagli"),
+                              Icon(
+                                Icons.settings,
+                                size: 15,
+                              ),
+                            ],
                           ),
                           const SizedBox(height: 5),
                           Text(
-                            "Dott.re in Architettura Università della Campania",
+                            "Consulenza Privata uno due tre",
                             style: TextStyle(height: 1.4),
                           ),
                          /* const SizedBox(height: 20),

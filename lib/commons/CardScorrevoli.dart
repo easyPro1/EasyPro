@@ -62,35 +62,36 @@ class SlidingCard extends StatelessWidget {
                   _buildGradientShape(),
                   Positioned(
                     child: Hero(
-                      tag: "${title}heart",
+                      tag: "${title}mail",
                       child: BlurIcon(
                         width: 28,
                         height: 28,
                         icon: Icon(
-                          Icons.ac_unit,
+                          Icons.remove_red_eye_sharp,
                           color: Colors.white,
-                          size: 15.2,
+                          size: 15,
                         ),
                       ),
                     ),
                     top: 16,
                     right: 16,
                   ),
-                  Positioned(
+                  /*Positioned(
                     child: Hero(
-                        tag: "${title}chevron",
+                        tag: "${title}alarm",
                         child: BlurIcon(
-                          width: 0,
-                          height: 0,
+                          width: 15,
+                          height: 15,
                           icon: Icon(
                             Icons.access_alarm,
                             color: Colors.white,
-                            size: 0,
+                            size: 15,
                           ),
                         )),
                     top: 16,
                     left: 16,
                   ),
+                  */
                   Padding(
                     padding: const EdgeInsets.all(16.0),
                     child: Column(
@@ -99,7 +100,7 @@ class SlidingCard extends StatelessWidget {
                       children: <Widget>[
                         Text(title,
                             style: TextStyle(
-                                color: Colors.white,
+                                color: Color(0xff00B500),
                                 fontSize: 15,
                                 fontWeight: FontWeight.w600)),
                         SizedBox(

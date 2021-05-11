@@ -22,7 +22,8 @@ class _HomeScreenState extends State<HomeScreen> {
      return Scaffold(
       appBar: AppBar(
         backgroundColor:  Color(0xFF151026),
-        title: Image.asset('../web/prova.png', fit: BoxFit.fitHeight),
+        title: Text('EasyPro'),
+        /*title: Image.asset('../web/prova.png', fit: BoxFit.fitHeight),*/
       ),
        drawer: Drawer(
     child: ListView(
@@ -63,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             children: <Widget>[
               SizedBox(height: MediaQuery.of(context).padding.top),
-              SizedBox(height: 46),
+              SizedBox(height: 20),
               Container(
                 alignment: Alignment.center,
                 margin: EdgeInsets.symmetric(horizontal: 20),
@@ -83,8 +84,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: TextField(
                     decoration: InputDecoration(
-                        prefixIcon: Icon(Icons.ac_unit),
-                        hintText: "ProvaBrutta?",
+                        prefixIcon: Icon(Icons.search),
+                        hintText: "Cerca",
                         hintStyle:
                             TextStyle(color: themeData.hintColor, fontSize: 14),
                         border: InputBorder.none,
@@ -101,17 +102,17 @@ class _HomeScreenState extends State<HomeScreen> {
                     const SizedBox(height: 12),
                     Text("Ciao Andrea,",
                         style: themeData.textTheme.headline1),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: 16),
                     Text("Troviamo il professionista perfetto per te",
                         style: TextStyle(
-                            fontSize: 24, color: themeData.primaryColorLight)),
+                            fontSize: 10, color: themeData.primaryColorLight)),
                     const SizedBox(height: 20),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         Text("Professionisti",
                             style: TextStyle(
-                                fontSize: 24,
+                                fontSize: 18,
                                 color: themeData.primaryColorLight,
                                 fontWeight: FontWeight.w600)),
                         Text("View all",
@@ -194,7 +195,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text("Miglior Valutazione",
+                    Text("Promozioni",
                         style: TextStyle(
                             fontSize: 24,
                             color: themeData.primaryColorLight,

@@ -111,11 +111,11 @@ class _DetailScreenState extends State<DetailScreen>
                             fit: BoxFit.cover,
                           ),
                           Image.asset(
-                            "img/professionista.jpg", // <- stubbed data
+                            "../img/professionista.jpg", // <- stubbed data
                             fit: BoxFit.cover,
                           ),
                           Image.asset(
-                            "img/professionista2.jpg", // <- stubbed data
+                            "../img/professionista2.jpg", // <- stubbed data
                             fit: BoxFit.cover,
                           ),
                         ],
@@ -127,7 +127,7 @@ class _DetailScreenState extends State<DetailScreen>
               top: 46,
               right: 24,
               child: Hero(
-                tag: "${heroTag}heart",
+                tag: "${heroTag}mail",
                 child: BlurIcon(
                   icon: Icon(
                     Icons.mail,
@@ -137,11 +137,27 @@ class _DetailScreenState extends State<DetailScreen>
                 ),
               ),
             ),
+              Positioned(
+              top: 46,
+              left: 64,
+              child: Hero(
+                tag: "${heroTag}name",
+                child: Text(
+                  "$heroTag",
+                 style: const TextStyle(
+          fontSize: 30.0,
+          backgroundColor: Colors.grey,
+        ),
+        textAlign: TextAlign.center,
+      ),
+                ),
+                ),
+              
             Positioned(
               top: 46,
               left: 24,
               child: Hero(
-                tag: "${heroTag}chevron",
+                tag: "${heroTag}homepage",
                 child: GestureDetector(
                   onTap: () async {
                     await _bottomSheetController.animateTo(0,
@@ -153,7 +169,7 @@ class _DetailScreenState extends State<DetailScreen>
                   },
                   child: BlurIcon(
                     icon: Icon(
-                     Icons.label,
+                     Icons.home,
                       color: Colors.white,
                       size: 24,
                     ),
@@ -187,7 +203,7 @@ class _DetailScreenState extends State<DetailScreen>
                             BorderRadius.only(topLeft: Radius.circular(50))),
                     child: Center(
                       child: Text(
-                        "Book",
+                        "Prenota",
                         style: TextStyle(color: Colors.white, fontSize: 20),
                       ),
                     ),
