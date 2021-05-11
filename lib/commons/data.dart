@@ -15,7 +15,7 @@ class StubData {
 
   List<ProfessionistaCard> get Professionisti => [
         ProfessionistaCard(
-          title: "Mario Rossi",
+          title: "Maria Rossi",
           subTitle: "Architetto",
           imageAsset: "../img/architetto.jpg",
         ),

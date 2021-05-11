@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import '../commons/theme.dart';
 import '../commons/blur_icon.dart';
-import 'BookScreen.dart'; //pagina
-import 'Fade_route.dart'; //pagina
+import 'BookScreen.dart'; 
+import 'Fade_route.dart'; 
 import '../commons/PageView.dart';
-import 'Button_Slide.dart'; //pagina
+import 'Button_Slide.dart'; 
 import 'package:page_indicator/page_indicator.dart'; 
 import 'package:rect_getter/rect_getter.dart';
 
@@ -146,7 +146,7 @@ class _DetailScreenState extends State<DetailScreen>
                   "$heroTag",
                  style: const TextStyle(
           fontSize: 30.0,
-          backgroundColor: Colors.grey,
+          
         ),
         textAlign: TextAlign.center,
       ),
