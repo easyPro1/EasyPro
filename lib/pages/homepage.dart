@@ -25,7 +25,7 @@ class _HomeScreenState extends State<HomeScreen> {
         title: Text('EasyPro'),
         /*title: Image.asset('../web/prova.png', fit: BoxFit.fitHeight),*/
       ),
-       drawer: Drawer(
+  drawer: Drawer(
     child: ListView(
       padding: EdgeInsets.zero,
       children: const <Widget>[
@@ -46,8 +46,9 @@ class _HomeScreenState extends State<HomeScreen> {
           title: Text('Messaggi'),
         ),
         ListTile(
-          leading: Icon(Icons.account_circle),
+          trailing: Icon(Icons.account_circle),
           title: Text('Profilo'),
+        
         ),
         ListTile(
           leading: Icon(Icons.settings),
