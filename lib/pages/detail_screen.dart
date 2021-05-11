@@ -111,11 +111,11 @@ class _DetailScreenState extends State<DetailScreen>
                             fit: BoxFit.cover,
                           ),
                           Image.asset(
-                            "../img/professionista.jpg", // <- stubbed data
+                            "../img/architetto_2.jpg", // <- stubbed data
                             fit: BoxFit.cover,
                           ),
                           Image.asset(
-                            "../img/professionista2.jpg", // <- stubbed data
+                            "../img/architetto_3.jpg", // <- stubbed data
                             fit: BoxFit.cover,
                           ),
                         ],
