@@ -21,14 +21,31 @@ class _EasyProAppState extends State<EasyProConceptApp>
   final List<Widget> tabBarScreens = [
     HomeScreen(),
   ];
-
+  /*
+  var storage = FirebaseStorage.instance;
+  late List<AssetImage> listOfImage;
+  bool clicked = false;
+  List<String?> listOfStr = [];
+  String? images;
+  bool isLoading = false;
+  */
+  
   @override
   void initState() {
     super.initState();
+    // getImages();
     _controller = TabController(
         initialIndex: 0, length: tabBarScreens.length, vsync: this);
   }
 
+  /*
+void getImages() {
+  listOfImage = [];
+  for (int i = 0; i < 6; i++) {
+    listOfImage.add(
+        AssetImage('assets/images/travelimage' + i.toString() + '.jpeg'));
+  }
+*/
   @override
   void dispose() {
     _controller.dispose();
@@ -36,7 +53,7 @@ class _EasyProAppState extends State<EasyProConceptApp>
   }
 
   final Future<FirebaseApp> _initialization = Firebase.initializeApp();
-
+ 
   @override
   Widget build(BuildContext context) {
     return FutureBuilder(
