@@ -1,25 +1,24 @@
-import 'error_page.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'commons/theme.dart';
 import 'pages/homepage.dart';
-import 'package:flutter/material.dart';
-import 'package:firebase_core/firebase_core.dart';
 
-void main() {
-  WidgetsFlutterBinding.ensureInitialized();
-  runApp(EasyProConceptApp());
-}
-
+void main() => runApp(EasyProConceptApp());
 
 class EasyProConceptApp extends StatefulWidget {
   @override
   _EasyProAppState createState() => _EasyProAppState();
 }
+
 class _EasyProAppState extends State<EasyProConceptApp>
     with TickerProviderStateMixin {
   TabController _controller;
   final List<Widget> tabBarScreens = [
     HomeScreen(),
+    Container(color: Colors.lightBlueAccent),
+    Container(color: Colors.lightBlue),
+    Container(color: Colors.blue),
+    Container(color: Colors.blueAccent),
   ];
 
   @override
@@ -35,23 +34,13 @@ class _EasyProAppState extends State<EasyProConceptApp>
     super.dispose();
   }
 
-  final Future<FirebaseApp> _initialization = Firebase.initializeApp();
-
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: _initialization,
-      builder: (context, snapshot) {
-        if (snapshot.hasError) {
-          return ErrorPage();
-        }
-
-        if (snapshot.connectionState == ConnectionState.done) {
-             SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
         statusBarColor: Colors.black.withAlpha(50),
         statusBarIconBrightness: Brightness.light));
     final themeData = EasyProThemeProvider.get();
-          return MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'EasyPro',
       theme: themeData,
@@ -80,11 +69,16 @@ class _EasyProAppState extends State<EasyProConceptApp>
         ),*/
       ),
     );
-        }
-
-        return CircularProgressIndicator();
-      },
-    );
   }
 
+  //Widget _buildTabIcon(String assetName, int index, ThemeData themeData) {
+    //return Tab(
+      /*icon: SvgPicture.asset(
+        assetName,
+        color: index == _controller.index
+            ? themeData.accentColor
+            : themeData.primaryColorLight,
+      ),*/
+//    );
+//  }
 }
