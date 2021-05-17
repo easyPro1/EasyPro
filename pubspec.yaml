@@ -29,9 +29,15 @@ dependencies:
   cupertino_icons: ^1.0.2
   page_indicator: ^0.3.0
   rect_getter: 0.0.1
+  
+  firebase_core: ^1.1.1
+  firebase_storage: ^8.0.6
+  cloud_firestore: ^2.1.0
+  firebase_auth: ^1.1.4
+  google_sign_in: ^5.0.3
+  toast: ^0.1.5
   intl: ^0.17.0
-  firebase_core: ^0.7.0
-  firebase_storage: ^7.0.0
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -140,7 +146,7 @@ flutter_native_splash:
   #       To show the notification bar, add the following code to your Flutter app:
   #       WidgetsFlutterBinding.ensureInitialized();
   #       SystemChrome.setEnabledSystemUIOverlays([SystemUiOverlay.bottom, SystemUiOverlay.top]);
-  #fullscreen: true
+  fullscreen: true
   
   # If you have changed the name(s) of your info.plist file(s), you can specify the filename(s) 
   # with the info_plist_files parameter.  Remove only the # characters in the three lines below,
@@ -148,3 +154,7 @@ flutter_native_splash:
   #info_plist_files:
   #  - 'ios/Runner/Info-Debug.plist'
   #  - 'ios/Runner/Info-Release.plist'
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+  - assets/images/

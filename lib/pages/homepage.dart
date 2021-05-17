@@ -1,9 +1,10 @@
+import 'package:easyapp/pages/login_page.dart';
 import '../commons/theme.dart';
 import 'package:flutter/material.dart';
 import '../commons/data.dart';
 import '../commons/PageView.dart';
 import 'detail_screen.dart';
-
+import 'package:easyapp/menu_button.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -26,34 +27,29 @@ class _HomeScreenState extends State<HomeScreen> {
         /*title: Image.asset('../web/prova.png', fit: BoxFit.fitHeight),*/
       ),
   drawer: Drawer(
-    child: ListView(
-      padding: EdgeInsets.zero,
-      children: const <Widget>[
-        DrawerHeader(
-          decoration: BoxDecoration(
-            color: Colors.black45,
-          ),
-          child: Text(
-            'Menu principale',
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: 24,
+     child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Center(
+              child: Text(
+                "Menu",
+                style: TextStyle(
+                  fontSize: 32,
+                  fontWeight: FontWeight.w600,
+                ),
+              ),
             ),
-          ),
-        ),
-        ListTile(
-          leading: Icon(Icons.message),
-          title: Text('Messaggi'),
-        ),
-        ListTile(
-          trailing: Icon(Icons.account_circle),
-          title: Text('Profilo'),
-        
-        ),
-        ListTile(
-          leading: Icon(Icons.settings),
-          title: Text('Impostazioni'),
-        ),
+            SizedBox(
+              height: 60.0,
+            ),
+         MenuButton(
+              primary: Colors.green,
+              onPressed: () {
+                 Navigator.push(context,MaterialPageRoute(builder: (context) => LoginPage()),);
+              },
+              text: "accedi",
+            ),
       ],
     ),
   ),
