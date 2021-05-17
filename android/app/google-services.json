@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "758727595163",
+    "project_id": "easypro-app-d0e4e",
+    "storage_bucket": "easypro-app-d0e4e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:758727595163:android:87db62376e694cd9a1623e",
+        "android_client_info": {
+          "package_name": "com.example.easyapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "758727595163-gagt5acq5koef7fonsip6m7hrbm7j2s2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCxiroNBD_FxLYz9m4lfoVsoMrOKsplymM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "758727595163-gagt5acq5koef7fonsip6m7hrbm7j2s2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
