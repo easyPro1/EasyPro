@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../commons/data.dart';
 import '../commons/PageView.dart';
 import 'detail_screen.dart';
-
+import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 
 class HomeScreen extends StatefulWidget {
   @override
