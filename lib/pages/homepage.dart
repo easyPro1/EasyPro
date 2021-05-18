@@ -5,6 +5,7 @@ import '../commons/data.dart';
 import '../commons/PageView.dart';
 import 'detail_screen.dart';
 import 'package:easyapp/menu_button.dart';
+import 'Contatti.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -48,7 +49,21 @@ class _HomeScreenState extends State<HomeScreen> {
               onPressed: () {
                  Navigator.push(context,MaterialPageRoute(builder: (context) => LoginPage()),);
               },
-              text: "accedi",
+              text: "Accedi",
+            ),
+            MenuButton(
+              primary: Colors.green,
+              onPressed: () {
+                // Navigator.push(context,MaterialPageRoute(builder: (context) => LoginPage()),);
+              },
+              text: "Impostazioni",
+            ),
+            MenuButton(
+              primary: Colors.green,
+              onPressed: () {
+                 Navigator.push(context,MaterialPageRoute(builder: (context) => ContattiPage()),);
+              },
+              text: "Contatti",
             ),
       ],
     ),
