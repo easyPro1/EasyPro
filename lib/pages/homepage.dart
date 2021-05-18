@@ -34,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
           children: <Widget>[
             Center(
               child: Text(
-                "Menu",
+                "Menu Principale",
                 style: TextStyle(
                   fontSize: 32,
                   fontWeight: FontWeight.w600,
@@ -45,21 +45,21 @@ class _HomeScreenState extends State<HomeScreen> {
               height: 60.0,
             ),
          MenuButton(
-              primary: Colors.green,
+              primary: Colors.lightBlue,
               onPressed: () {
                  Navigator.push(context,MaterialPageRoute(builder: (context) => LoginPage()),);
               },
               text: "Accedi",
             ),
             MenuButton(
-              primary: Colors.green,
+              primary: Colors.blueGrey,
               onPressed: () {
                 // Navigator.push(context,MaterialPageRoute(builder: (context) => LoginPage()),);
               },
               text: "Impostazioni",
             ),
             MenuButton(
-              primary: Colors.green,
+              primary: Colors.grey,
               onPressed: () {
                  Navigator.push(context,MaterialPageRoute(builder: (context) => ContattiPage()),);
               },
