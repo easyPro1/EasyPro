@@ -101,7 +101,10 @@ class LoginPage extends StatelessWidget {
             ),
             SignInButton(
               primary: Colors.green,
-              onPressed: () {},
+              onPressed: () {
+
+                
+              },
               text: "Accedi con email",
             ),
             SizedBox(
