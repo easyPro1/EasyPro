@@ -1,8 +1,6 @@
 import 'package:easyapp/pages/homepage.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import '../service/auth.dart';
 import '../sign_in_button.dart';
-import '../service/database.dart';
 import 'package:flutter/material.dart';
 import 'package:easyapp/menu_button.dart';
 
@@ -141,8 +139,9 @@ class LoginPage extends StatelessWidget {
               // onPressed: _signInAnonymously,
               onPressed: () async {
                 await auth.signInAnonymously();
+             
               },
-              text: "Accedi in anonimo",
+              text: "Registrati",
             ),
           ],
         ),
