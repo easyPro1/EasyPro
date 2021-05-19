@@ -106,7 +106,7 @@ class _DetailScreenState extends State<DetailScreen>
                       shape: IndicatorShape.circle(size: 8),
                       child: PageView(
                         children: <Widget>[
-                          Image.asset(
+                          /*Image.asset(
                             imageAsset,
                             fit: BoxFit.cover,
                           ),
@@ -118,7 +118,7 @@ class _DetailScreenState extends State<DetailScreen>
                             "../img/architetto_3.jpg", // <- stubbed data
                             fit: BoxFit.cover,
                           ),
-                        ],
+*/                        ],
                       ),
                     )),
               ),

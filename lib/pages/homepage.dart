@@ -1,12 +1,13 @@
 import 'package:easyapp/pages/login_page.dart';
 import '../commons/theme.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import '../commons/data.dart';
 import '../commons/PageView.dart';
 import 'detail_screen.dart';
 import 'package:easyapp/menu_button.dart';
 import 'Contatti.dart';
-
+import 'ProblemPage.dart';
 class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -58,6 +59,13 @@ class _HomeScreenState extends State<HomeScreen> {
               },
               text: "Impostazioni",
             ),
+              MenuButton(
+              primary: Colors.blueGrey,
+              onPressed: () {
+                Navigator.push(context,MaterialPageRoute(builder: (context) => ProblemPage()),);
+              },
+              text: "Segnalaci un problema",
+            ),
             MenuButton(
               primary: Colors.grey,
               onPressed: () {
@@ -68,7 +76,14 @@ class _HomeScreenState extends State<HomeScreen> {
       ],
     ),
   ),
-  body: ScrollConfiguration(
+  body: StreamBuilder(
+        stream: FirebaseFirestore.instance.collection('imageURLs').snapshots(),
+        builder: (context, snapshot) {
+          return !snapshot.hasData
+              ? Center(
+                  child: CircularProgressIndicator(),
+                )
+              : ScrollConfiguration(
       behavior: OverScrollBehavior(),
       child: GestureDetector(
         onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
@@ -194,7 +209,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             builder: (BuildContext context, Widget child) {
                               return DetailScreen(
                                 heroTag: "${Professionisti.cardTitle()}",
-                                imageAsset: Professionisti.cardImageAsset(),
+                              //  imageAsset: Professionisti.cardImageAsset(),
                               );
                             });
                       },
@@ -235,7 +250,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             builder: (BuildContext context, Widget child) {
                               return DetailScreen(
                                 heroTag: "${Professionisti.cardTitle()}",
-                                imageAsset: Professionisti.cardImageAsset(),
+                              //  imageAsset: Professionisti.cardImageAsset(),
                               );
                             });
                       },
@@ -247,7 +262,10 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-    ),
+              );
+
+               },
+  ),
      );
 }
 }

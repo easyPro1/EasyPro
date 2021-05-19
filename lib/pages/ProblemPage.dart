@@ -3,7 +3,7 @@ import 'login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:easyapp/menu_button.dart';
 
-class ContattiPage extends StatelessWidget {
+class ProblemPage extends StatelessWidget {
     @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -68,6 +68,13 @@ class ContattiPage extends StatelessWidget {
             
             SizedBox(height: 90,),
               Container(
+    child:  TextField(
+  decoration: InputDecoration(
+     prefixIcon: Icon(Icons.textsms),
+    border: OutlineInputBorder(),
+    hintText: 'Lascia un messaggio'
+  ),
+),
 
 
                               ), 
