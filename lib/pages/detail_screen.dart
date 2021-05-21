@@ -13,8 +13,8 @@ class DetailScreen extends StatefulWidget {
   final String imageAsset;
 
   DetailScreen({
-    this.heroTag,
-    this.imageAsset,
+    @required this.heroTag,
+    @required this.imageAsset,
   });
 
   @override
@@ -33,28 +33,31 @@ class _DetailScreenState extends State<DetailScreen>
   GlobalKey rectGetterKey = RectGetter.createGlobalKey();
   Rect rect;
 
-  _DetailScreenState({
-    this.heroTag,
-    this.imageAsset,
+ _DetailScreenState({
+   @required this.heroTag,
+    @required this.imageAsset,
   });
 
   static double bookButtonBottomOffset = -60;
   double bookButtonBottom = bookButtonBottomOffset;
-  AnimationController _bottomSheetController;
+ AnimationController _bottomSheetController;
 
   void _onTap() {
     setState(() => rect = RectGetter.getRectFromKey(rectGetterKey));
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+     WidgetsBinding.instance.addPostFrameCallback((_) {
       setState(() =>
           rect = rect.inflate(1.3 * MediaQuery.of(context).size.longestSide));
       Future.delayed(animationDuration + delay, _goToNextPage);
     });
   }
 
-  void _goToNextPage() {
+  Future <void> _goToNextPage() async {
     Navigator.of(context)
         .push(FadeRouteBuilder(page: BookScreen()))
-        .then((_) => setState(() => rect = null));
+        .then((_) => setState(() {
+          var _rect = null;
+                    return rect = _rect;
+        }));
   }
 
   @override
@@ -76,6 +79,7 @@ class _DetailScreenState extends State<DetailScreen>
     final themeData = EasyProThemeProvider.get();
     final coverImageHeightCalc =
         MediaQuery.of(context).size.height / 2 + bottomSheetCornerRadius;
+    var rectGetterKey2 = rectGetterKey;
     return WillPopScope(
       onWillPop: () async {
         if (_bottomSheetController.value <= 0.5) {
@@ -90,7 +94,7 @@ class _DetailScreenState extends State<DetailScreen>
           children: <Widget>[
             Container(),
             Hero(
-              createRectTween: ParallaxPageView.createRectTween,
+              //createRectTween: ParallaxPageView.createRectTween,
               tag: heroTag,
               child: Container(
                 height: coverImageHeightCalc,
@@ -133,7 +137,7 @@ class _DetailScreenState extends State<DetailScreen>
                     Icons.mail,
                     color: Colors.white,
                     size: 15.2,
-                  ),
+                  ), padding: EdgeInsets.all(0),
                 ),
               ),
             ),
@@ -172,7 +176,7 @@ class _DetailScreenState extends State<DetailScreen>
                      Icons.home,
                       color: Colors.white,
                       size: 24,
-                    ),
+                    ), padding: EdgeInsets.all(0),
                   ),
                 ),
               ),
@@ -191,7 +195,7 @@ class _DetailScreenState extends State<DetailScreen>
               bottom: bookButtonBottom,
               right: 0,
               child: RectGetter(
-                key: rectGetterKey,
+                key: rectGetterKey2,
                 child: GestureDetector(
                   onTap: _onTap,
                   child: Container(

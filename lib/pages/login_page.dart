@@ -2,11 +2,12 @@ import 'package:easyapp/pages/homepage.dart';
 import '../service/auth.dart';
 import '../sign_in_button.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:easyapp/menu_button.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key key, this.auth})
-      // const LoginPage({Key? key, required this.onSingIn, required this.auth})
+       //const LoginPage({Key key, this.onSingIn, @required this.auth})
       : super(key: key);
 
   // final void Function(User?) onSingIn;
@@ -111,7 +112,10 @@ class LoginPage extends StatelessWidget {
             SignInButton(
               primary: Colors.red,
               onPressed: () async {
-                await auth.signInWithGoogle();
+                await auth.signInWithGoogle().whenComplete(() => Fluttertoast.showToast(   msg: "Porco Giuda",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        ));
               },
               text: "Accedi con Google",
             ),

@@ -250,7 +250,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             builder: (BuildContext context, Widget child) {
                               return DetailScreen(
                                 heroTag: "${Professionisti.cardTitle()}",
-                              //  imageAsset: Professionisti.cardImageAsset(),
+                               imageAsset: Professionisti.cardImageAsset(),
                               );
                             });
                       },
