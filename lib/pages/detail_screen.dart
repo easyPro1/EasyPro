@@ -13,8 +13,8 @@ class DetailScreen extends StatefulWidget {
   final String imageAsset;
 
   DetailScreen({
-    @required this.heroTag,
-    @required this.imageAsset,
+  this.heroTag,
+  this.imageAsset,
   });
 
   @override
@@ -34,8 +34,8 @@ class _DetailScreenState extends State<DetailScreen>
   Rect rect;
 
  _DetailScreenState({
-   @required this.heroTag,
-    @required this.imageAsset,
+   this.heroTag,
+    this.imageAsset,
   });
 
   static double bookButtonBottomOffset = -60;
@@ -55,8 +55,7 @@ class _DetailScreenState extends State<DetailScreen>
     Navigator.of(context)
         .push(FadeRouteBuilder(page: BookScreen()))
         .then((_) => setState(() {
-          var _rect = null;
-                    return rect = _rect;
+         // var _rect;
         }));
   }
 
@@ -94,7 +93,7 @@ class _DetailScreenState extends State<DetailScreen>
           children: <Widget>[
             Container(),
             Hero(
-              //createRectTween: ParallaxPageView.createRectTween,
+              createRectTween: ParallaxPageView.createRectTween,
               tag: heroTag,
               child: Container(
                 height: coverImageHeightCalc,

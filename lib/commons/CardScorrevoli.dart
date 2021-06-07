@@ -19,9 +19,9 @@ class SlidingCard extends StatelessWidget {
 
   const SlidingCard({
     Key key,
-    @required this.title,
-    @required this.subTitle,
-    @required this.imageAssetName,
+    this.title,
+    this.subTitle,
+    this.imageAssetName,
     this.offset,
     this.position,
     this.height,

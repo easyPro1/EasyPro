@@ -13,12 +13,12 @@ class HomeScreen extends StatefulWidget {
   _HomeScreenState createState() => _HomeScreenState();
 }
 class _HomeScreenState extends State<HomeScreen> { 
-  final List<String> ProfessionistiCategories = StubData().ProfessionistiCategories;
-  final List<ProfessionistaCard> Professionisti = StubData().Professionisti;
-  final List<PromozioneCard> Promozioni = StubData().Promozioni;
-
-  int ArticoliCorrelati = 0;
-
+  final List<String> professionistiCategories = StubData().ProfessionistiCategories;
+  final List<ProfessionistaCard> professionisti = StubData().Professionisti;
+  final List<PromozioneCard> promozioni = StubData().Promozioni;
+//FirebaseFirestore firestore = FirebaseFirestore.instance;
+  int articoliCorrelati = 0;
+//CollectionReference prof = FirebaseFirestore.instance.collection('professionisti');
  @override
   Widget build(BuildContext context) {
     final themeData = EasyProThemeProvider.get(); 
@@ -76,14 +76,14 @@ class _HomeScreenState extends State<HomeScreen> {
       ],
     ),
   ),
-  body: StreamBuilder(
-        stream: FirebaseFirestore.instance.collection('imageURLs').snapshots(),
-        builder: (context, snapshot) {
-          return !snapshot.hasData
-              ? Center(
-                  child: CircularProgressIndicator(),
-                )
-              : ScrollConfiguration(
+  //body: FutureBuilder(
+    //    future: prof.doc().get(),
+      //  builder: (context, snapshot) {
+        //  return snapshot.hasData
+          //    ? Center(
+            //      child: CircularProgressIndicator(),
+              //  )
+              body: ScrollConfiguration(
       behavior: OverScrollBehavior(),
       child: GestureDetector(
         onTap: () => FocusScope.of(context).requestFocus(FocusNode()),
@@ -161,7 +161,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     return GestureDetector(
                       onTap: () {
                         setState(() {
-                          ArticoliCorrelati = index;
+                          articoliCorrelati = index;
                         });
                       },
                       child: AnimatedContainer(
@@ -170,7 +170,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         margin: EdgeInsets.only(
                             left: index == 0 ? 20 : 5, right: 5),
                         decoration: BoxDecoration(
-                          color: index == ArticoliCorrelati
+                          color: index == articoliCorrelati
                               ? themeData.accentColor
                               : themeData.unselectedWidgetColor,
                           borderRadius: BorderRadius.circular(4),
@@ -179,9 +179,9 @@ class _HomeScreenState extends State<HomeScreen> {
                           child: Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 10),
                             child: Text(
-                              ProfessionistiCategories[index],
+                              professionistiCategories[index],
                               style: TextStyle(
-                                  color: index == ArticoliCorrelati
+                                  color: index ==  articoliCorrelati
                                       ? Colors.white
                                       : themeData.accentColor),
                             ),
@@ -190,15 +190,15 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     );
                   },
-                  itemCount: ProfessionistiCategories.length,
+                  itemCount: professionistiCategories.length,
                 ),
               ),
               const SizedBox(height: 10),
               ParallaxPageView(
                 viewportFraction: 0.6,
                 height: 360,
-                data: Professionisti,
-                onCardTap: (Professionisti) {
+                data: professionisti,
+                onCardTap: (professionisti) {
                   Navigator.of(context).push(
                     PageRouteBuilder<void>(
                       pageBuilder: (BuildContext context,
@@ -208,7 +208,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             animation: animation,
                             builder: (BuildContext context, Widget child) {
                               return DetailScreen(
-                                heroTag: "${Professionisti.cardTitle()}",
+                                heroTag: "${professionisti.cardTitle()}",
                               //  imageAsset: Professionisti.cardImageAsset(),
                               );
                             });
@@ -238,8 +238,8 @@ class _HomeScreenState extends State<HomeScreen> {
               ParallaxPageView(
                 viewportFraction: 0.8,
                 height: 180,
-                data: Promozioni,
-                onCardTap: (Professionisti) {
+                data: promozioni,
+                onCardTap: (professionisti) {
                   Navigator.of(context).push(
                     PageRouteBuilder<void>(
                       pageBuilder: (BuildContext context,
@@ -249,8 +249,8 @@ class _HomeScreenState extends State<HomeScreen> {
                             animation: animation,
                             builder: (BuildContext context, Widget child) {
                               return DetailScreen(
-                                heroTag: "${Professionisti.cardTitle()}",
-                               imageAsset: Professionisti.cardImageAsset(),
+                                heroTag: "${professionisti.cardTitle()}",
+                               imageAsset: professionisti.cardImageAsset(),
                               );
                             });
                       },
@@ -262,9 +262,9 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-              );
+             // );
 
-               },
+               //},
   ),
      );
 }
