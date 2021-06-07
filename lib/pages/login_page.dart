@@ -4,15 +4,17 @@ import '../sign_in_button.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:easyapp/menu_button.dart';
+import '../service/google_signin.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({Key key, this.auth})
+   LoginPage({Key key, this.auth})
        //const LoginPage({Key key, this.onSingIn, @required this.auth})
       : super(key: key);
 
   // final void Function(User?) onSingIn;
   final AuthBase auth;
-
+  var email;
+  var password;
   // Future<void> _signInAnonymously() async {
   //   try {
       // final user = await auth.signInAnonymously();
@@ -95,15 +97,46 @@ class LoginPage extends StatelessWidget {
                 ),
               ),
             ),
+    Padding(
+      padding: const EdgeInsets.fromLTRB(0.0, 100.0, 0.0, 0.0),
+      child: new TextFormField(
+        maxLines: 1,
+        keyboardType: TextInputType.emailAddress,
+        autofocus: false,
+        decoration: new InputDecoration(
+            hintText: 'Email',
+            icon: new Icon(
+              Icons.mail,
+              color: Colors.grey,
+            )),
+        validator: (value) => value.isEmpty ? 'Email can\'t be empty' : null,
+        onSaved: (value) => email = value.trim(),
+      ),
+    ),
+ Padding(
+      padding: const EdgeInsets.fromLTRB(0.0, 15.0, 0.0, 0.0),
+      child: new TextFormField(
+        maxLines: 1,
+        obscureText: true,
+        autofocus: false,
+        decoration: new InputDecoration(
+            hintText: 'Password',
+            icon: new Icon(
+              Icons.lock,
+              color: Colors.grey,
+            )),
+        validator: (value) => value.isEmpty ? 'Password can\'t be empty' : null,
+        onSaved: (value) => password = value.trim(),
+      ),
+    ),
             SizedBox(
               height: 60.0,
             ),
             SignInButton(
               primary: Colors.green,
-              onPressed: () {
+              onPressed: () async {
 
-                
-              },
+                await auth.s
               text: "Accedi con email",
             ),
             SizedBox(
@@ -112,10 +145,13 @@ class LoginPage extends StatelessWidget {
             SignInButton(
               primary: Colors.red,
               onPressed: () async {
-                await auth.signInWithGoogle().whenComplete(() => Fluttertoast.showToast(   msg: "Porco Giuda",
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.CENTER,
-        ));
+
+                await auth.signInWithGoogle;
+                //.whenComplete(() => Fluttertoast.showToast(   msg: "Porco Giuda",
+       // toastLength: Toast.LENGTH_SHORT,
+        //gravity: ToastGravity.CENTER,
+        //));
+            
               },
               text: "Accedi con Google",
             ),
