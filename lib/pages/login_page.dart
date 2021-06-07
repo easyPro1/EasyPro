@@ -136,7 +136,7 @@ class LoginPage extends StatelessWidget {
               primary: Colors.green,
               onPressed: () async {
 
-                await auth.s
+                await auth.signInWithGoogle();},
               text: "Accedi con email",
             ),
             SizedBox(
