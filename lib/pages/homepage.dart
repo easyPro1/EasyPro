@@ -8,14 +8,27 @@ import 'detail_screen.dart';
 import 'package:easyapp/menu_button.dart';
 import 'Contatti.dart';
 import 'ProblemPage.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
-}
+} 
 class _HomeScreenState extends State<HomeScreen> { 
   final List<String> professionistiCategories = StubData().ProfessionistiCategories;
   final List<ProfessionistaCard> professionisti = StubData().Professionisti;
   final List<PromozioneCard> promozioni = StubData().Promozioni;
+Future<void> initializeFlutterFire() async {    try {
+  await Firebase.initializeApp();      
+  setState(() {        
+  var  initialized = true;     
+  });    
+    } catch(e) {
+              
+    setState(() {        
+  var error = true;      
+      });    }  }
+
 //FirebaseFirestore firestore = FirebaseFirestore.instance;
   int articoliCorrelati = 0;
 //CollectionReference prof = FirebaseFirestore.instance.collection('professionisti');
@@ -268,4 +281,7 @@ class _HomeScreenState extends State<HomeScreen> {
   ),
      );
 }
+}
+
+class _initialized {
 }
